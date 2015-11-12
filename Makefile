@@ -82,18 +82,11 @@ SOBJS = startup_XMC$(XMCseries).o system_XMC$(XMCseries).o
 LCOBJS= System_LibcStubs.o
 # Then of course our own source files
 OBJS  = main.o
-OBJS += pwm.o
-OBJS += projectGpio.o
-OBJS += delay.o
-OBJS += timerUtility.o
-
 OBJS += VirtualSerial.o
 OBJS += Descriptors.o
 
 # Finally we probably need some library files
 LOBJS  = xmc4_scu.o
-LOBJS += xmc4_gpio.o
-LOBJS += xmc_ccu4.o
 LOBJS += xmc_usbd.o
 
 # USB Files
