@@ -1,5 +1,5 @@
 =================================================
-----------------------INFO ----------------------
+--------------------- INFO ----------------------
 =================================================
 
 Files and instructions relating to the 'Embedded Systems and Security' Course offered at the
@@ -50,7 +50,7 @@ at the start of main() add:
 
 	SystemCoreClockUpdate();
 	USB_Init();
-	
+
 8.
 To print strings:
 
@@ -58,3 +58,16 @@ To print strings:
 	CDC_Device_USBTask(&VirtualSerial_CDC_Interface);
 	USB_USBTask();
 
+=================================================
+------------- Displaying Received Data ----------
+=================================================
+
+Displaying the transmitted data simply requires running the following command.
+
+cat /dev/ttyACM0
+
+=================================================
+----------------- Further Info ------------------
+=================================================
+
+More advanced functionality can be implemented by looking at the 'USB/Class/Device/CDCClassDevice.h' file.
