@@ -59,6 +59,34 @@ To print strings:
 	USB_USBTask();
 
 =================================================
+--------------- printf Functionality ------------
+=================================================
+Clone the following repository:
+https://github.com/cjlano/tinyprintf
+Copy tinyprintf.c and tinyprintf.h into project directory
+
+Add the following lines to the top of your main.c
+
+	#include "tinyprintf.h"
+
+	#define debug_printf(fmt, args);		printf((fmt), (args)); \
+												CDC_Device_USBTask(&VirtualSerial_CDC_Interface); \
+												USB_USBTask();
+
+	void tiny_putc(void* p, char c)
+	{
+		CDC_Device_SendByte(&VirtualSerial_CDC_Interface, (const uint8_t)c);
+	}
+
+After calling USB_init() add:
+	init_printf(NULL, tiny_putc);
+
+Formatted prints can then be sent, with some restriction in types (see tinyprintf.h)
+	debug_printf("Test String: %u %u\r\n", count++, count + 1);
+
+debug_printf can obviously be renamed through the #define, but not to printf, as 'stdio.h' is included in the USB driver.
+
+=================================================
 ------------- Displaying Received Data ----------
 =================================================
 
