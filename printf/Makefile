@@ -24,7 +24,7 @@ DB = $(GCCBASE)/arm-none-eabi-gdb
 
 ########## Project options ##########
 # Project name (for linker description filename)
-LDname=pwm_modification
+LDname=printf_example
 # Which version of XMClib to use (for easy switching to debug version dependent issues)
 XMCLIBDIR=XMC_Peripheral_Library_v2.0.0
 # Specify device series, package and FLASH size separately to derive device dependent file names more easily
@@ -40,9 +40,6 @@ CFLAGS += -I$(XMCLIBBASE)/$(XMCLIBDIR)/CMSIS/Infineon/XMC$(XMCseries)_series/Inc
 CFLAGS += -I$(XMCLIBBASE)/$(XMCLIBDIR)/XMClib/inc/
 # Where to find USB Headers
 CFLAGS += -I./
-CFLAGS += -I$(USBBASE)/
-CFLAGS += -I$(USBBASE)/Core/
-CFLAGS += -I$(USBBASE)/Core/XMC4000/
 # Which device
 CFLAGS += -DXMC$(XMCseries)_$(XMCpackage)x$(XMCsize)
 # Which core architecture
@@ -82,6 +79,7 @@ SOBJS = startup_XMC$(XMCseries).o system_XMC$(XMCseries).o
 LCOBJS= System_LibcStubs.o
 # Then of course our own source files
 OBJS  = main.o
+OBJS += tinyprintf.o
 OBJS += VirtualSerial.o
 OBJS += Descriptors.o
 

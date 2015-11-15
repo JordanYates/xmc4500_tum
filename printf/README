@@ -1,0 +1,13 @@
+=================================================
+--------------------- INFO ----------------------
+=================================================
+
+Example project for printf functionality on the XMC4500 platform
+
+=================================================
+------------- Displaying Received Data ----------
+=================================================
+
+Displaying the transmitted data simply requires running the following command.
+
+cat /dev/ttyACM0
