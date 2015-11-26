@@ -5,9 +5,19 @@
 Example project for printf functionality on the XMC4500 platform
 
 =================================================
+--------------- Transmitting Data ---------------
+=================================================
+
+Use a serial communication program such as kermit,
+or alternatively:
+
+echo "Test String" > /dev/ttyACM0
+
+=================================================
 ------------- Displaying Received Data ----------
 =================================================
 
 Displaying the transmitted data simply requires running the following command.
 
 cat /dev/ttyACM0
+
